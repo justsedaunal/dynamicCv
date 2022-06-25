@@ -1,8 +1,8 @@
 import { User } from './user';
 export const GetUserData:User={
-  imgUrl:undefined,
+  imgUrl:"",
   email:"",
-  lastName:undefined,
+  lastName:"",
   firstName:"",
 
 }

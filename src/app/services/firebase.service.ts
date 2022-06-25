@@ -10,11 +10,10 @@ export class  FirebaseService {
 
   constructor(public dataBase: Database) { }
   getUser(userName: string) {
-
     const startConfRef = ref(this.dataBase, `user/${userName}`);
     onValue(startConfRef, (snapshot) => {
+      debugger
       const data: User = snapshot.val();
-      console.log(data);
       GetUserData.email = data.email;
       GetUserData.firstName = data.firstName;
       GetUserData.lastName = data.lastName;

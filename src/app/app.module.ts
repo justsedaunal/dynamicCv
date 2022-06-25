@@ -22,19 +22,7 @@ import { CvComponent } from './components/pages/cv/cv.component';
 import { NewCvComponent } from './components/pages/new-cv/new-cv.component';
 /**********    firebase imports end       *************** */
 
-/**********    firebase start         *************** */
 
-const firebaseConfig = {
-  apiKey:environment.firebase.apiKey,
-  authDomain: environment.firebase.authDomain,
-  projectId: environment.firebase.projectId,
-  storageBucket: environment.firebase.storageBucket,
-  messagingSenderId: environment.firebase.messagingSenderId,
-  appId:environment.firebase.appId,
-  measurementId: environment.firebase.measurementId
-};
-
-/**********    firebase end         *************** */
 
 
 @NgModule({
@@ -48,13 +36,13 @@ const firebaseConfig = {
     InterestsComponent,
     CertificateComponent,
     CvComponent,
-    NewCvComponent
+    NewCvComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideDatabase(()=>getDatabase())
 

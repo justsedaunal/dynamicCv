@@ -1,10 +1,7 @@
-<app-navi></app-navi>
-
-<app-about></app-about>
-<app-experience></app-experience>
-<app-education></app-education>
-<app-skills></app-skills>
-<app-interests></app-interests>
-<app-certificate></app-certificate>
-
-<router-outlet></router-outlet>
+<app-navi newItemEvent="createVisible=$event" *ngIf="createVisible==false"></app-navi>
+<app-about *ngIf="createVisible==false"></app-about>
+<app-experience *ngIf="createVisible==false"></app-experience>
+<app-education *ngIf="createVisible==false"></app-education>
+<app-skills *ngIf="createVisible==false"></app-skills>
+<app-interests *ngIf="createVisible==false"></app-interests>
+<app-certificate *ngIf="createVisible==false"></app-certificate>

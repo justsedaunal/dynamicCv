@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
@@ -8,21 +8,18 @@ import { FirebaseService } from 'src/app/services/firebase.service';
   styleUrls: ['./cv.component.css']
 })
 export class CvComponent implements OnInit {
-
-  constructor(private firebaseService: FirebaseService,private route:ActivatedRoute) { }
+routeUrl:string;
+createVisible: false;
+  constructor(private firebaseService: FirebaseService,private activatedRoute:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(param=>{
-      if (param["userName"]) {
-        this.firebaseService.getUser(param["userName"])
+    this.activatedRoute.params.subscribe((param) => {
+      if (param['userName']) {
+        this.firebaseService.getUser(param['userName']);
+      } else {
+        this.firebaseService.getUser('justsedaunal');
       }
-      else{
-        this.firebaseService.getUser("justsedaunal")
-      }
-    })
-    // this.firebaseService.getUser("justsedaunal")
-
-
+    });
   }
 
 }
