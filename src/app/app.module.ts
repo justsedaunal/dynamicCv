@@ -11,7 +11,7 @@ import { SkillsComponent } from './components/pages/skills/skills.component';
 import { InterestsComponent } from './components/pages/interests/interests.component';
 import { CertificateComponent } from './components/pages/certificate/certificate.component';
 import { environment } from 'src/environments/environment';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /**********    firebase imports  start      *************** */
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
@@ -42,6 +42,7 @@ import { NewCvComponent } from './components/pages/new-cv/new-cv.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideDatabase(()=>getDatabase())

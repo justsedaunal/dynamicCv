@@ -1,0 +1,4 @@
+.bs-stepper .step-trigger:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  background-color: aqua !important;
+}

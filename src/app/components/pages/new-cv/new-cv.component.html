@@ -1,1 +1,223 @@
-<p>new-cv works!</p>
+<div class="container ">
+
+  <div id="stepper1" class="bs-stepper">
+    <div class="bs-stepper-header">
+      <div class="step" data-target="#test-l-1">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">About</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-2">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">Experience <button (click)="addItem()">Ekle</button></span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">3</span>
+          <span class="bs-stepper-label">Education <button (click)="addEducation()">add</button> </span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-4">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">4</span>
+          <span class="bs-stepper-label">Skills <button (click)="addSkill()">add</button> </span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-5">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">5</span>
+          <span class="bs-stepper-label">Interest</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-6">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">6</span>
+          <span class="bs-stepper-label">Certificates <button (click)="addCertificate()" >add</button>  </span>
+        </button>
+      </div>
+    </div>
+    <div class="bs-stepper-content">
+
+      <div id="test-l-1" class="content">
+        <form [formGroup]="userForm">
+          <div class="form-group mb-3">
+            <label for="exampleInputEmail1">User Name</label>
+            <input type="text" name="userName" class="form-control" formControlName="userName" id="userName"
+              placeholder="User Name" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" name="email" class="form-control" formControlName="email" id="email"
+              placeholder="Enter email" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="exampleInputEmail1">First Name</label>
+            <input ngmodel type="text" name="FirstName" class="form-control" formControlName="firstName" id="FirstName"
+              placeholder="First Name" />
+            <!-- <span *ngIf="userForm.controls['firstName'].errors">
+              <h5 *ngIf="userForm.controls">Bu alan zorunlu</h5> -->
+
+            <!-- <h5 ng-if="userForm.controls.firstName.errors.required">Bu alan zorunlu</h5> -->
+            <!-- </span> -->
+          </div>
+          <div class="form-group mb-3">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input ngmodel type="text" name="lastName" class="form-control" formControlName="lastName" id="lastName"
+              placeholder="Last Name" />
+          </div>
+            <div class="form-group mb-3">
+              <label for="imageUrl">Image</label>
+              <input ngmodel type="text" name="imageUrl" class="form-control" formControlName="imageUrl" id="imageUrl"
+                placeholder="imageUrl" />
+            </div>
+          <div class="form-group mb-3">
+            <label for="district">District</label>
+            <input ngmodel type="text" name="district" class="form-control" formControlName="district" id="district"
+              placeholder="District" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="exampleInputEmail1">Country</label>
+            <input ngmodel type="text" name="country" class="form-control" formControlName="country" id="country"
+              placeholder="Country" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="phoneNumber">Phone Number</label>
+            <input ngmodel type="text" name="phoneNumber" class="form-control" formControlName="phoneNumber"
+              id="phoneNumber" placeholder="Phone Number" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="foreword">Foreword</label>
+            <input ngmodel type="text" name="foreword" class="form-control" formControlName="foreword" id="foreword"
+              placeholder="Foreword" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="foreword">Linkedln</label>
+            <input ngmodel type="text" name="linkedln" class="form-control" formControlName="linkedln" id="foreword"
+              placeholder="Linkedln" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="foreword">Github</label>
+            <input ngmodel type="text" name="github" class="form-control" formControlName="github" id="github"
+              placeholder="Github" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="foreword">Twitter</label>
+            <input ngmodel type="text" name="twitter" class="form-control" formControlName="twitter" id="twitter"
+              placeholder="Twitter" />
+          </div>
+        </form>
+
+
+        <button (click)="next()" class="btn btn-primary">Next</button>
+      </div>
+      <div id="test-l-2" class="content">
+
+        <form action="#" class="experience-repeater">
+          <div class="d-flex" *ngFor="let item of experienceList; let i = index">
+            <div class="form-group mb-3  ">
+              <label for="jobTitle">Job Title</label>
+              <input [(ngModel)]="item.jobTitle" name="jobTitle{{ i }}" id="jobTitle{{ i }}" placeholder="jobTitle" />
+            </div>
+            <div class="form-group mb-3">
+              <label for="jobLocation">Job Location</label>
+              <input [(ngModel)]="item.jobLocation" name="jobLocation{{ i }}" id="jobLocation{{ i }}"
+                placeholder="job Location" />
+            </div>
+            <div class="form-group mb-3">
+              <label for="jobDescription">Job Description</label>
+              <input [(ngModel)]="item.jobDescription" name="jobDescription{{ i }}" id="jobDescription{{ i }}"
+                placeholder="job Description" />
+            </div>
+            <div class="form-group mb-3">
+              <label for="date">Date</label>
+              <input [(ngModel)]="item.date" type="text" name="date{{ i }}" id="date{{ i }}" placeholder="date" />
+            </div>
+          </div>
+        </form>
+        <div class="d-flex justify-content-between mt-3">
+          <button (click)="next2()" class="btn btn-primary">Previous</button>
+
+          <button (click)="next()" class="btn btn-primary">Next</button>
+        </div>
+      </div>
+
+      <div id="test-l-3" class="content text-center">
+        <form action="#" class="education-repeater">
+          <div class="d-flex" *ngFor="let item of educationList; let i = index">
+            <div class="form-group mb-3  ">
+              <label for="universityName">University Name</label>
+              <input [(ngModel)]="item.universityName" name="universityName{{ i }}" id="universityName{{ i }}"
+                placeholder="universityName" />
+            </div>
+            <div class="form-group mb-3">
+              <label for="universityDepartment">University Department</label>
+              <input [(ngModel)]="item.universityDepartment" name="universityDepartment{{ i }}"
+                id="universityDepartment{{ i }}" placeholder="universityDepartment" />
+            </div>
+
+
+          </div>
+        </form>
+
+          <div class="d-flex justify-content-between mt-3">
+          <button (click)="next2()" class="btn btn-primary">Previous</button>
+
+          <button (click)="next()" class="btn btn-primary">Next</button>
+        </div>
+      </div>
+      <div id="test-l-4" class="content text-center">
+        <form action="#" class="skills-repeater">
+          <div class="d-flex" *ngFor="let item of skillsList; let i = index">
+            <div class="form-group mb-3  ">
+              <label for="skill">Skill</label>
+              <input [(ngModel)]="item.imgUrl" name="skill{{ i }}" id="skill{{ i }}" placeholder="skill" />
+            </div>
+
+
+
+          </div>
+        </form>
+        <div class="d-flex justify-content-between mt-3">
+          <button (click)="next2()" class="btn btn-primary">Previous</button>
+
+          <button (click)="next()" class="btn btn-primary">Next</button>
+        </div>
+      </div>
+      <div id="test-l-5" class="content text-center">
+        <div class="form-group mb-3  ">
+          <label for="interest">Interest</label>
+          <input [(ngModel)]="interest" name="interest" id="interest" placeholder="interest" />
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+          <button (click)="next2()" class="btn btn-primary">Previous</button>
+
+          <button (click)="next()" class="btn btn-primary">Next</button>
+        </div>
+      </div>
+      <div id="test-l-6" class="content text-center">
+        <form action="#" class="certificate-repeater">
+          <div class="d-flex" *ngFor="let item of certificateList; let i = index">
+            <div class="form-group mb-3  ">
+              <label for="name">Certificate Name</label>
+              <input [(ngModel)]="item.name" type="text" name="name{{ i }}" id="name{{ i }}"
+                placeholder="name" />
+            </div>
+
+
+
+          </div>
+        </form>
+        <button type="button" (click)="onSubmit()" class="btn btn-primary mt-5">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>

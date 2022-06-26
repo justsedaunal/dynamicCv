@@ -1,3 +1,4 @@
+import { GetUserEducation } from './../../../models/getUserData';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
-
+  educations = GetUserEducation
   constructor() { }
 
   ngOnInit(): void {

@@ -15,8 +15,10 @@ export class AppComponent implements OnInit {
     this.activatedRoute.params.subscribe((param) => {
       if (param['userName']) {
         this.firebaseService.getUser(param['userName']);
+        this.firebaseService.getEducation(param['userName']);
       } else {
         this.firebaseService.getUser('justsedaunal');
+        this.firebaseService.getEducation('justsedaunal');
       }
     });
   }

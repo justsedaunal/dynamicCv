@@ -9,7 +9,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class CvComponent implements OnInit {
 routeUrl:string;
-createVisible: false;
+createVisible: boolean=false;
   constructor(private firebaseService: FirebaseService,private activatedRoute:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
