@@ -1,4 +1,11 @@
 .bs-stepper .step-trigger:not(:disabled):not(.disabled) {
   cursor: pointer;
-  background-color: aqua !important;
+  background-color: #1f99a3c4 !important;
+}
+.university-name {
+  margin-right:3rem;
+}
+
+.margin-left {
+  margin-left: -9rem;
 }

@@ -27,7 +27,7 @@ export class FirebaseService {
       GetUserData.twitter= data.twitter;
       GetUserData.district = data.district;
       GetUserData.foreword = data.foreword;
-      GetUserData.github = data.foreword;
+      GetUserData.github = data.github;
       GetUserData.userName = data.userName;
 
 
@@ -53,21 +53,15 @@ export class FirebaseService {
   }
 
   setUser(userModel: User) {
-    set(ref(this.dataBase, 'user/' + userModel.userName), {
-      email: userModel.email,
-      firstName: userModel.firstName,
-      lastName: userModel.lastName,
-      district:  userModel.district,
-      country:  userModel.country,
-      phoneNumber:  userModel.phoneNumber,
-      foreword:  userModel.foreword,
-      linkedln:  userModel.linkedln,
-      github:  userModel.github,
-      twitter: userModel.twitter,
-      imgUrl:  userModel.imgUrl,
-    });
+
+    set(ref(this.dataBase, 'user/' + userModel.userName),userModel);
   }
   async getInterests(userName:string){
+    const snapshot = await get(ref(this.dataBase,`interests/${userName}`))
+    return snapshot.val();
+
+  }
+  async getUser2(userName:string){
     const snapshot = await get(ref(this.dataBase,`interests/${userName}`))
     return snapshot.val();
 
@@ -76,22 +70,30 @@ async getExperience(userName:string){
   const snapshot = await get(ref(this.dataBase, `experiences/${userName}`))
     return snapshot.val();
 }
+async getCertificate(userName:string){
+  const snapshot = await get(ref(this.dataBase, `certificates/${userName}`))
+    return snapshot.val();
+}
 
 async getSkills(userName:string) {
   const snapshot = await get(ref(this.dataBase, `skills/${userName}`))
   return snapshot.val();
 }
+async getEducation2(userName:string) {
+  const snapshot = await get(ref(this.dataBase, `educations/${userName}`))
+  return snapshot.val();
+}
 
-  setExperience(experienceModel: Experience, userName: string) {
+  setExperience(experienceModel: Experience[], userName: string) {
     set(ref(this.dataBase, 'experiences/' + userName), experienceModel);
   }
-  setSkill(skillModel: Skill, userName: string) {
+  setSkill(skillModel: Skill[], userName: string) {
     set(ref(this.dataBase, 'skills/' + userName), skillModel);
   }
-  setCertificate(certificateModel: Certificate, userName: string) {
+  setCertificate(certificateModel: Certificate[], userName: string) {
     set(ref(this.dataBase, 'certificates/' + userName), certificateModel);
   }
-  setEducation(educationModel:Education, userName: string){
+  setEducation(educationModel:Education[], userName: string){
     set(ref(this.dataBase,'educations/'+userName), educationModel)
   }
   setInterest(interest:string, userName:string){

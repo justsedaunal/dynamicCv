@@ -10,7 +10,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class ExperienceComponent implements OnInit {
   dataLoadded=false
-  experience:Experience
+  experience:Experience[]
 
   constructor(private firebaseService:FirebaseService, private activatedRoute: ActivatedRoute) { }
 

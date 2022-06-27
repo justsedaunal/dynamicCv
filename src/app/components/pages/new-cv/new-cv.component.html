@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container margin-left ">
 
   <div id="stepper1" class="bs-stepper">
     <div class="bs-stepper-header">
@@ -12,21 +12,39 @@
       <div class="step" data-target="#test-l-2">
         <button class="step-trigger">
           <span class="bs-stepper-circle">2</span>
-          <span class="bs-stepper-label">Experience <button (click)="addItem()">Ekle</button></span>
+          <span class="bs-stepper-label">Experience <button class="btn btn-light" (click)="addItem()"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg></button></span>
         </button>
       </div>
       <div class="line"></div>
       <div class="step" data-target="#test-l-3">
         <button class="step-trigger">
           <span class="bs-stepper-circle">3</span>
-          <span class="bs-stepper-label">Education <button (click)="addEducation()">add</button> </span>
+          <span class="bs-stepper-label">Education <button class="btn btn-light" (click)="addEducation()"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg></button> </span>
         </button>
       </div>
       <div class="line"></div>
       <div class="step" data-target="#test-l-4">
         <button class="step-trigger">
           <span class="bs-stepper-circle">4</span>
-          <span class="bs-stepper-label">Skills <button (click)="addSkill()">add</button> </span>
+          <span class="bs-stepper-label">Skills <button class="btn btn-light" (click)="addSkill()"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg></button> </span>
         </button>
       </div>
       <div class="line"></div>
@@ -40,7 +58,13 @@
       <div class="step" data-target="#test-l-6">
         <button class="step-trigger">
           <span class="bs-stepper-circle">6</span>
-          <span class="bs-stepper-label">Certificates <button (click)="addCertificate()" >add</button>  </span>
+          <span class="bs-stepper-label">Certificates <button class="btn btn-light" (click)="addCertificate()"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg></button> </span>
         </button>
       </div>
     </div>
@@ -73,11 +97,11 @@
             <input ngmodel type="text" name="lastName" class="form-control" formControlName="lastName" id="lastName"
               placeholder="Last Name" />
           </div>
-            <div class="form-group mb-3">
-              <label for="imageUrl">Image</label>
-              <input ngmodel type="text" name="imageUrl" class="form-control" formControlName="imageUrl" id="imageUrl"
-                placeholder="imageUrl" />
-            </div>
+          <div class="form-group mb-3">
+            <label for="imageUrl">Image</label>
+            <input ngmodel type="text" name="imageUrl" class="form-control" formControlName="imageUrl" id="imageUrl"
+              placeholder="imageUrl" />
+          </div>
           <div class="form-group mb-3">
             <label for="district">District</label>
             <input ngmodel type="text" name="district" class="form-control" formControlName="district" id="district"
@@ -151,9 +175,9 @@
 
       <div id="test-l-3" class="content text-center">
         <form action="#" class="education-repeater">
-          <div class="d-flex" *ngFor="let item of educationList; let i = index">
+          <div class="d-flex d-flex flex-column text-start mt-3" *ngFor="let item of educationList; let i = index">
             <div class="form-group mb-3  ">
-              <label for="universityName">University Name</label>
+              <label class="university-name" for="universityName">University Name</label>
               <input [(ngModel)]="item.universityName" name="universityName{{ i }}" id="universityName{{ i }}"
                 placeholder="universityName" />
             </div>
@@ -167,7 +191,7 @@
           </div>
         </form>
 
-          <div class="d-flex justify-content-between mt-3">
+        <div class="d-flex justify-content-between mt-3">
           <button (click)="next2()" class="btn btn-primary">Previous</button>
 
           <button (click)="next()" class="btn btn-primary">Next</button>
@@ -175,7 +199,7 @@
       </div>
       <div id="test-l-4" class="content text-center">
         <form action="#" class="skills-repeater">
-          <div class="d-flex" *ngFor="let item of skillsList; let i = index">
+          <div class="d-flex mt-3" *ngFor="let item of skillsList; let i = index">
             <div class="form-group mb-3  ">
               <label for="skill">Skill</label>
               <input [(ngModel)]="item.imgUrl" name="skill{{ i }}" id="skill{{ i }}" placeholder="skill" />
@@ -192,7 +216,7 @@
         </div>
       </div>
       <div id="test-l-5" class="content text-center">
-        <div class="form-group mb-3  ">
+        <div class="form-group mb-3 mt-3 text-start ">
           <label for="interest">Interest</label>
           <input [(ngModel)]="interest" name="interest" id="interest" placeholder="interest" />
         </div>
@@ -204,11 +228,10 @@
       </div>
       <div id="test-l-6" class="content text-center">
         <form action="#" class="certificate-repeater">
-          <div class="d-flex" *ngFor="let item of certificateList; let i = index">
+          <div class="d-flex mt-3" *ngFor="let item of certificateList; let i = index">
             <div class="form-group mb-3  ">
               <label for="name">Certificate Name</label>
-              <input [(ngModel)]="item.name" type="text" name="name{{ i }}" id="name{{ i }}"
-                placeholder="name" />
+              <input [(ngModel)]="item.name" type="text" name="name{{ i }}" id="name{{ i }}" placeholder="name" />
             </div>
 
 

@@ -6,6 +6,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { Education } from 'src/app/models/education';
 import { Skill } from 'src/app/models/skill';
 import { Certificate } from 'src/app/models/certificate';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-new-cv',
   templateUrl: './new-cv.component.html',
@@ -34,7 +35,7 @@ export class NewCvComponent implements OnInit {
     github: new FormControl("", []),
     twitter: new FormControl("", [])
   })
-  constructor(private firebaseService: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService,private router: Router) { }
 
   ngOnInit() {
     this.stepper = new Stepper(document.querySelector('#stepper1'), {
@@ -87,24 +88,24 @@ export class NewCvComponent implements OnInit {
 
 
   async onSubmit() {
+
     if (this.userForm.valid) {
+
       if (await this.firebaseService.getUserControl(this.userForm.value.userName) == null) {
         this.firebaseService.setUser(this.userForm.value)
-        this.experienceList.forEach(element => {
-          this.firebaseService.setExperience(element, this.userForm.value.userName)
-        })
-        this.certificateList.forEach(element => {
-          this.firebaseService.setCertificate(element, this.userForm.value.userName)
-        })
-        this.educationList.forEach(element => {
-          this.firebaseService.setEducation(element, this.userForm.value.userName)
-        })
-        this.skillsList.forEach(element => {
-          this.firebaseService.setSkill(element, this.userForm.value.userName)
-        })
 
+
+        this.firebaseService.setExperience(this.experienceList, this.userForm.value.userName)
+
+        this.firebaseService.setCertificate(this.certificateList, this.userForm.value.userName)
+
+        this.firebaseService.setEducation(this.educationList, this.userForm.value.userName)
+
+        this.firebaseService.setSkill(this.skillsList, this.userForm.value.userName)
         this.firebaseService.setInterest(this.interest, this.userForm.value.userName)
+
         alert("cv created")
+this.router.navigateByUrl("/cv/"+ this.userForm.value.userName)
       }
       //this.firebaseService.setUser(this.userForm.value)
     }

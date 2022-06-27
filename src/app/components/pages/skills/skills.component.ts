@@ -14,13 +14,14 @@ export class SkillsComponent implements OnInit {
   }
 
   constructor(private activatedRoute: ActivatedRoute,private firebaseService: FirebaseService) { }
+  skill:Skill[]
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(async (param) => {
       if (param['userName']) {
-      this.skills=await this.firebaseService.getSkills(param['userName']);
+      this.skill=await this.firebaseService.getSkills(param['userName']);
       } else {
-        this.skills=await this.firebaseService.getSkills('justsedaunal');
+        this.skill=await this.firebaseService.getSkills('justsedaunal');
       }
   })
 }
