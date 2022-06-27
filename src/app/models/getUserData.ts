@@ -1,7 +1,7 @@
 import { Education } from './education';
 import { User } from './user';
 export const GetUserData: User = {
-  imgUrl: "",
+  imageUrl: "",
   email: "",
   lastName: "",
   firstName: "",

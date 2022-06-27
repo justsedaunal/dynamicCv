@@ -20,7 +20,8 @@ export class FirebaseService {
       GetUserData.email = data.email;
       GetUserData.firstName = data.firstName;
       GetUserData.lastName = data.lastName;
-      GetUserData.imgUrl = data.imgUrl;
+      GetUserData.imageUrl= data.imageUrl
+      ;
       GetUserData.country = data.country;
       GetUserData.phoneNumber = data.phoneNumber;
       GetUserData.linkedln=data.linkedln;

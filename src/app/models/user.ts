@@ -1,5 +1,5 @@
 export class User {
-  imgUrl: string;
+  imageUrl: string;
   firstName: string;
   lastName: string;
   email: string;

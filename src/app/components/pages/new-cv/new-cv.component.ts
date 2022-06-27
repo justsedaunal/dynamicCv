@@ -26,7 +26,7 @@ export class NewCvComponent implements OnInit {
     lastName: new FormControl("", [Validators.required]),
     userName: new FormControl("", [Validators.required]),
 
-    imageUrl: new FormControl("", []),
+    imgUrl: new FormControl("", [Validators.required]),
     district: new FormControl("", []),
     country: new FormControl("", []),
     phoneNumber: new FormControl("", []),
